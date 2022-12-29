@@ -1,4 +1,124 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.father{
     background:
     #093545;
+    height:100vh;
+    overflow:hidden;
+    
+}
+.login-container{
+    margin-top: 5% !important;
+    height: 406px;
+    width: 347px;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+.title h1{
+margin-top: -9%;
+font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 80px;
+    text-align:center;
+}
+.title p{
+    font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+margin-top: 6%;
+}
+.title{
+    height: 30px;
+}
+.fields{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height:200px;
+}
+.loginbtn{
+    background-color: #20DF7F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+border-radius: 10px;
+width: 300px;
+height: 45px;
+color:white;
+font-size: 16px;
+line-height: 20px;
+text-align: center;
+text-transform: capitalize;
+margin-top:10%;
+}
+.username, .password{
+    width: 300px;
+height: 45px;
+border:.5px;
+border-radius:10px;
+background: #224957;
+outline: none;
+color:white;
+    font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+padding: 2%;
+}
+.username{
+    margin-top: 10%;
+}
+.username::placeholder, .password::placeholder{
+    color:white;
+    font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+}
+.controls a{
+    text-decoration: none;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 17px;
+text-align: center;
+color: #20DF7F;
+}
+.controls{
+    width: 293px;
+    display: flex;
+    justify-content: space-between;
+}
+.controls label{
+    margin-right: 10%;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+}
+#remember{
+    background-color: #224957 !important;
+}
+.first{
+    position: absolute;
+    top:80% !important;
+}
+.second{
+    position: absolute;
+    top:80% !important;
 }
