@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const authRoute = require('./routes/auth')
 const courseRoute = require('./routes/courses')
+const cors= require('cors')
 
 dotenv.config({path: 'config.env'})
 
@@ -15,7 +16,7 @@ mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopolo
 .catch(err=> console.log(err))
 
 
-
+app.use(cors)
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/courses", courseRoute)
