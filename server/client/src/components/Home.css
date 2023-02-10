@@ -8,7 +8,7 @@
 .Home{
     height:100%;
     width:100%;
-    background-repeat: no-repeat;
+    
 }
 .hero{
     background: url(../Utility/new.png);
@@ -16,6 +16,7 @@
   background-Position: ceenter;
   height: 100vh;
   width: 100vw;
+  background-repeat: no-repeat;
   color:white;
   padding:2%;
   font-family:'Montserrat', sans-serif;
