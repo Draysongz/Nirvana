@@ -16,10 +16,11 @@ mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopolo
 .catch(err=> console.log(err))
 
 
-app.use(cors)
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/courses", courseRoute)
+
 
 app.listen(port, ()=>{
     console.log(`your server is now running in ${port}`)

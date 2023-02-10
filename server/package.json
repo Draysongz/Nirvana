@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
     "server": "nodemon index.js",
-    "client": "cd client && npm start",
+    "client": " cd client && npm start",
     "dev": "concurrently \"npm run server \" \"npm run client\""
   },
   "author": "Ackermann",
@@ -15,7 +15,6 @@
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "axios": "^1.2.2",
-    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",

@@ -25,13 +25,18 @@ router.post('/register', async (req, res)=>{
 router.post('/login', async (req,res)=>{
     try {
         const student = await Student.findOne({username: req.body.username})
-        !student && res.status(401).json('User not found')
+        if( !student){
+          res.status(401).json('User not found')
+        }else{
 
         const hashedPassword = cryptoJS.AES.decrypt(student.password, process.env.SECRET_KEY)
 
         const originalPassword = hashedPassword.toString(cryptoJS.enc.Utf8)
 
-        originalPassword !==req.body.password && res.status(401).json('wrong password')
+        if(originalPassword !==req.body.password ){
+          return res.status(401).json('wrong password')
+        }else{
+       
 
         const accessToken = jwt.sign({
             id: student._id,
@@ -41,10 +46,12 @@ router.post('/login', async (req,res)=>{
 
       const  { password, ...others } = student._doc;
 
-      res.status(200).json({...others, accessToken})
+     res.status(200).json({...others, accessToken})
+      }
+        }
     } 
     catch (error) {
-        res.status(500).json(error)
+      res.status(500).json(error)
     }
 })
 

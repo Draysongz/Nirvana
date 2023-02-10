@@ -12,18 +12,25 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/api/auth/login', { 
-        username: username,
-        password: password });
-      const token = response.data.token;
+      const response = await fetch('http://localhost:4000/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ username: username, 
+          password:password }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      const token = data.token;
       // Save the token in a secure way
-      console.log(token);
-      
+      // ...
+      console.log(data)
+      // Redirect to the dashboard or home page
       // ...
     } catch (err) {
-      // setError('Invalid username or password');
+      setError('Invalid username or password');
       console.log(err)
-    };
+    }
   };
   return (
     <div className="father">
@@ -32,10 +39,10 @@ const Login = () => {
       <h1>Sign in</h1>
       <p>Sign in and start taking courses</p>
       </div>
-      <form method='post' className="loginform" onSubmit={handleSubmit}>
+      <form method='POST' className="loginform" onSubmit={handleSubmit}>
         <div className="fields">
-        <input type="text" className="username" required name='username' placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
-        <input type="password" className="password" name='password' required placeholder='Password' onChange={(event) => setPassword(event.target.value)}  />
+        <input type="text" className="username" autoComplete='false ' value={username} required name='username' placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
+        <input type="password" className="password" value={password} autoComplete='false' name='password' required placeholder='Password' onChange={(event) => setPassword(event.target.value)}  />
         </div>
         <div className="controls">
         <input type="checkbox" name="remember" id="remember" />
@@ -43,7 +50,7 @@ const Login = () => {
         <a href="#">Forgot password?</a>
         </div>
         <div className="submit">
-          <button className='loginbtn' type='submit'>Login</button>
+          <button className='loginbtn' type='Submit'>Login</button>
         </div>
         
       </form>
