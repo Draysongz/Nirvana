@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.aside{
+    background-color:#093545 ;
+    width:17vw;
+    height: 100vh;
+}
+.dashboard{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap: 5%;
+    width:100vw;
+}
+.navs{
+    padding:5%; 
+    color: white;
+    list-style-type:none;   
+    font-size:22px
+}
+.logo{
+    padding:1%;
+}
+.las{
+    margin-right:4%;    
+}
+.sec{
+    padding:1%;
+    width:50vw;
+    display:flex;
+    flex-direction:column;
+   gap: 7%;
+}
+.searchbar{
+    width:35vw;
+    height:5vh;
+    /* border-radius:10px; */
+    outline:none;
+    border:none;
+    font-size:  1.5rem;
+}
+.searchbar::placeholder{
+    font-size:  1.5rem;
+    color: rgb(209, 197, 197);
+}
+.search{
+    display:flex;
+    flex-direction:row;
+}
+.la-search{
+    font-size: 1.5rem;
+    transform: rotate(-90deg);
+}
+.board{
+    border: 1px solid rgb(72, 72, 182);
+    height:65vh;
+    background-color:rgb(72, 72, 182);
+    color:white;
+    padding:1%;
+}
+.first-board{
+    margin-top:7%;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );   
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width:17vw;
+    height:50vh;
+    padding:1%;
+    display:flex;
+    flex-direction:column;
+    gap:10%;
+    margin-left:4%;
+}
+.course-title{
+    text-align:center;
+}
+.la-chart-line{
+    font-size:44px; 
+    margin-left: 2%;
+}

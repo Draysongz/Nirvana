@@ -2,13 +2,14 @@ import  React, {useState} from 'react'
 import './Login.css'
 import Vector1 from '../Utility/firstv.png'
 import Vector2 from '../Utility/Vector.png'
-import axios from 'axios'
+import {toast} from 'react-toastify'
+import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -21,15 +22,32 @@ const Login = () => {
         },
       });
       const data = await response.json();
-      const token = data.token;
+      const token = data.accessToken;
+      console.log(token)
       // Save the token in a secure way
       // ...
       console.log(data)
       // Redirect to the dashboard or home page
+      if (response.status === 200) {
+        toast('Login successful');
+        localStorage.setItem("jwt", token);
+        navigate('/dashboard')
+      } else if (data === 'User not found') {
+        // handle the case where the user was not found
+        toast.error('user not found')
+      }else if(data === 'wrong password'){
+        toast.error('wrong password')
+      }
+      else{
+        toast.error('Invalid credentials')
+      }
+      
+      
       // ...
     } catch (err) {
-      setError('Invalid username or password');
       console.log(err)
+      
+     
     }
   };
   return (
@@ -47,7 +65,7 @@ const Login = () => {
         <div className="controls">
         <input type="checkbox" name="remember" id="remember" />
         <label htmlFor="remember">Remember me</label>
-        <a href="#">Forgot password?</a>
+        <a href="/forgot">Forgot password?</a>
         </div>
         <div className="submit">
           <button className='loginbtn' type='Submit'>Login</button>
